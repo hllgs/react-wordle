@@ -38,11 +38,11 @@ export const Keyboard = ({
       } else if (e.code === 'Backspace') {
         onDelete()
       } else {
-        //  console.log(e);
         const key = localeAwareUpperCase(e.key)
-         // console.log(key);
+          const keyRegex = new RegExp('(?![QWX])[A-ZÖÇŞİĞÜ]')
+        const a=keyRegex.test(key);
         // TODO: check this test if the range works with non-english letters
-        if (key.length === 1 && key >= 'A' && key <= 'Ş' && key!=='Q' && key!=='W' && key!=='X') {
+        if (key.length === 1 && keyRegex.test(key)) {
           onChar(key)
         }
       }
